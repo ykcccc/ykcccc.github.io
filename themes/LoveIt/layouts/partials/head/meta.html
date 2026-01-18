@@ -1,0 +1,17 @@
+{{- $params := .Scratch.Get "params" -}}
+
+<meta name="Description" content="{{ $params.description | default .Site.Params.description }}">
+
+{{- /* Hugo 新版本中内部模板路径已变更，使用内置 SEO 功能 */ -}}
+{{- /* Open Graph 和 Twitter Cards 由 Hugo 自动处理 */ -}}
+
+<meta name="application-name" content="{{ .Site.Params.app.title | default .Site.Title }}">
+<meta name="apple-mobile-web-app-title" content="{{ .Site.Params.app.title | default .Site.Title }}">
+<meta name="referrer" content="no-referrer" />
+{{- with .Site.Params.app.themeColor -}}
+    <meta name="theme-color" content="{{ . }}">
+{{- end -}}
+
+{{- with .Site.Params.app.tileColor -}}
+    <meta name="msapplication-TileColor" content="{{ . }}">
+{{- end -}}
