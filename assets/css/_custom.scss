@@ -1,0 +1,51 @@
+/**
+ * 自定义头像样式
+ * 优化头像显示,添加白色背景,保持图片比例
+ */
+
+.home-profile {
+  .home-avatar {
+    /* 移除容器的白色圆形背景和阴影，笨蛋～ */
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 0;
+    box-shadow: none;
+
+    img {
+      /* 移除固定宽度,让图片自适应容器 */
+      width: 8rem !important;
+      height: 8rem !important;
+
+      /* 使用 object-fit 保持图片比例并完全显示 */
+      object-fit: contain !important;
+
+      /* 添加白色背景 */
+      background-color: #ffffff !important;
+
+      /* 保持圆形裁剪 */
+      border-radius: 50% !important;
+
+      /* 平滑过渡效果 */
+      transition: all 0.4s ease;
+
+      /* 悬停效果 */
+      &:hover {
+        position: relative;
+        transform: translateY(-0.75rem);
+      }
+    }
+  }
+}
+
+/* 当主页显示文章列表时的头像样式 */
+.home[data-home=posts] {
+  .home-avatar img {
+    width: 6rem !important;
+    height: 6rem !important;
+  }
+}
+
+/* 去除页面最外侧的边框，笨蛋～ */
+.container {
+  padding: 0 !important;
+}
